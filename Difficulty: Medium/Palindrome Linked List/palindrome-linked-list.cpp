@@ -64,7 +64,7 @@ class Solution{
              fast=fast->next->next;
         }
        
-        // right now q is on middle element 
+        // right now slow is on middle Node
         struct Node *first = head;
        
         struct Node*second_head = reverse(slow->next);
@@ -80,7 +80,7 @@ class Solution{
            second=second->next;
            
        }
-         reverse(second_head);
+        // reverse(second_head);
         
         return palli;
     }
