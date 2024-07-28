@@ -21,21 +21,12 @@ class Solution{
         platform= 1;
         for (int j = 0; j < n; j++) {
             if (i != j)
-                
-                
                 if (arr[i] >= arr[j] && dep[j] >= arr[i])
                     platform++;
         }
         result = max(platform, result);
     }
     return result;
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     }
 };
 
