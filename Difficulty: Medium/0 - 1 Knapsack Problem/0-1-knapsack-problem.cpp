@@ -20,9 +20,23 @@ class Solution {
     // Function to return max value that can be put in knapsack of capacity.
     int knapSack(int capacity, vector<int> &val, vector<int> &wt) {
         // code here
-        int n = val.size();
-        vector<vector<int>> dp(n + 1, vector<int>(capacity + 1, -1));
-        return f(capacity, val, wt, n,dp);
+        int n = wt.size();
+        // vector<vector<int>> dp(n + 1, vector<int>(capacity + 1, -1));
+        // return f(capacity, val, wt, n,dp);
+        vector<vector<int>> dp(n + 1, vector<int>(capacity + 1, 0));
+        
+        for (int i = 1 ;i<=n;i++){
+            for(int j= 1;j<=capacity;j++){
+                int inc=0;
+               if(wt[i-1]<=j){
+                inc = val[i-1]+ dp[i-1][j-wt[i-1]];
+                } 
+                int exc = dp[i-1][j]; 
+                
+             dp[i][j]=max(inc,exc);
+            }
+        }
+        return dp[n][capacity];
     }
 };
 
