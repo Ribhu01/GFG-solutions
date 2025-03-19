@@ -5,12 +5,13 @@ using namespace std;
 
 
 // } Driver Code Ends
+
 // User function template for C++
 class Solution {
   public:
     // Function returns the second
     // largest elements
-    int print2largest(vector<int> &arr) {
+    int getSecondLargest(vector<int> &arr) {
         // Code Here
         int max = INT_MIN;
         int max2 = INT_MIN;
@@ -20,15 +21,12 @@ class Solution {
             }
              
         }
-        
         for(int i = 0 ; i < arr.size();i++){
-            
             if(arr[i]==max){
                 continue;
             }
-            
                 if(arr[i]>max2){
-                max2= arr[i];
+                    max2= arr[i];
              
                  }
             
@@ -39,6 +37,7 @@ class Solution {
         return max2;
     }
 };
+
 
 //{ Driver Code Starts.
 
@@ -56,8 +55,9 @@ int main() {
             arr.push_back(number);
         }
         Solution ob;
-        int ans = ob.print2largest(arr);
+        int ans = ob.getSecondLargest(arr);
         cout << ans << endl;
+        cout << "~" << endl;
     }
     return 0;
 }
