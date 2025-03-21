@@ -11,22 +11,20 @@ class Solution {
     // Function to find equilibrium point in the array.
     int findEquilibrium(vector<int> &arr) {
         // code here
-        int sum = 0;
-        int leftsum = 0; 
-        int n = arr.size();
-    
-        for (int i = 0; i < n; ++i)
-            sum += arr[i];
-    
-        for (int i = 0; i < n; ++i) {
-    
-            sum -= arr[i]; 
-    
-            if (leftsum == sum)
-               return i;
-             leftsum += arr[i];
-          }
-    
+        int total_sum = 0;
+        int leftsum = 0;
+        for(int i = 0 ; i<arr.size();i++){
+            total_sum += arr[i];
+        }
+        
+        
+        for(int i = 0 ;i< arr.size();i++){
+            total_sum -= arr[i];
+            if(leftsum == total_sum){
+                return i;
+            }
+            leftsum += arr[i];
+        }
         return -1;
     }
 };
