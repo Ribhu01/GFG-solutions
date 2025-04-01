@@ -1,69 +1,59 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 
 // } Driver Code Ends
 
-class Solution
-{
-    public:
-    //Function to check if brackets are balanced or not.
-    bool ispar(string x)
-    {
-        // Your code here
+
+class Solution {
+  public:
+    bool isBalanced(string& s) {
+        // code here
         stack<char> st;
-        for(auto ch: x){
-            if(ch =='(' || ch =='{' || ch =='['){
-                st.push(ch);
+        for(auto x : s){
+            if(x == '(' || x == '[' || x== '{'){
+                st.push(x);
             }
-            if(ch ==')' || ch =='}' || ch ==']'){
-                    if (st.empty()) {
-                 return false;
-                  }
-                  
-                  char top = st.top();
-                if ((ch == ')' && top == '(') ||
-                    (ch == '}' && top == '{') ||
-                    (ch == ']' && top == '[')) {
+            if(x == ')' || x == ']' || x== '}'){
+                if(st.empty()) return false;
+                
+                char top = st.top();
+                
+                if( (x== ')' && top == '(') || (x == '}' && top =='{') 
+                || (x == ']' && top == '[') ){
                     st.pop();
-                } else {
+                }else{
                     return false;
-                 }  
-                  
-      
+                }
+            
+                
             }
         }
-        
-           if(st.empty()){
-               return true;
-           }else{
-               return false;
-           }
+        if(st.empty()) return true;
         
         
+        return false;
     }
-        
-        
-    
-
 };
+
 
 //{ Driver Code Starts.
 
-int main()
-{
-   int t;
-   string a;
-   cin>>t;
-   while(t--)
-   {
-       cin>>a;
-       Solution obj;
-       if(obj.ispar(a))
-        cout<<"balanced"<<endl;
-       else
-        cout<<"not balanced"<<endl;
-   }
+int main() {
+    int t;
+    string a;
+    cin >> t;
+    while (t--) {
+        cin >> a;
+        Solution obj;
+        if (obj.isBalanced(a))
+            cout << "true" << endl;
+        else
+            cout << "false" << endl;
+
+        cout << "~"
+             << "\n";
+    }
 }
 // } Driver Code Ends
